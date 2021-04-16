@@ -1,9 +1,8 @@
 <div>
     <p>
-        <input name="username" type="text"/>
-        <input name="password" type="password"/>
-        {{ jwt.token }}
+        <label for="username">username</label><input id=username name="username" #un  type="text" value=""/>
+        <input name="password" #pw  type="password" value=""/>
         <button (click)="onDelete(jwt)" class="del">x</button> 
-        <button (click)="submitLogin(username,password)" class="log">login</button>
+        <button (click)="submitLogin(un.value,pw.value)" class="log">login</button>
 </p>
 </div>

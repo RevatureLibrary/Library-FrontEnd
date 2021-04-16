@@ -14,12 +14,12 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoginService {
-  authUrl:string = 'localhost:8080/library/authentication';
+  authUrl:string = 'http://localhost:8080/library/authentication';
 
   constructor(private http:HttpClient) { }
 
-  getToken(la:LoginAttempt):Observable<JWT> {
-    return this.http.post<JWT>(this.authUrl,la,httpOptions);
+  getToken(la:LoginAttempt):Observable<any> {
+    return this.http.post<any>(this.authUrl,la,httpOptions);
   
   }
 
