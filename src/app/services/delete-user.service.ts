@@ -19,4 +19,9 @@ export class DeleteUserService {
   getAllUsers():Observable<User[]> {
     return this.http.get<User[]>("/users", { headers: headers });
   }
+
+  deleteUser(user: User):Observable<User> {
+    return this.http.delete<User>("/users/" + user.id, { headers: headers});
+  }
+
 }

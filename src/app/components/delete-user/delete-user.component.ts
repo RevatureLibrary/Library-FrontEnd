@@ -19,5 +19,10 @@ export class DeleteUserComponent implements OnInit {
     });
   }
 
+  deleteUser(user: User) {
+    this.deleteUserService.deleteUser(user).subscribe({
+      next: res => this.users = this.users.filter(user => user.id !== res.id)
+    });
+  }
 
 }
