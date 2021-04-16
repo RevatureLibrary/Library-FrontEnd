@@ -11,6 +11,9 @@ import { CardsComponent } from './components/cards/cards.component';
 import { FormFieldComponent } from './components/form-field/form-field.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,13 @@ import { MenuComponent } from './components/menu/menu.component';
     CardsComponent,
     FormFieldComponent,
     LoginSignupComponent,
-    MenuComponent
+    MenuComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
