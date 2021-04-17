@@ -15,6 +15,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { LoginFormComponent } from './components/login-components/login-form/login-form.component';
 import { LoginAuthTokenComponent } from './components/login-components/login-auth-token/login-auth-token.component';
 import { LoginService } from './services/login.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LoginService } from './services/login.service';
     LoginSignupComponent,
     MenuComponent,
     LoginFormComponent,
-    LoginAuthTokenComponent
+    LoginAuthTokenComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
