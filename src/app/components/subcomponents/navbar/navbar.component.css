@@ -1,0 +1,23 @@
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 125px;
+}
+mat-toolbar-row {
+  position: relative;
+}
+.example-spacer {
+  position: absolute;
+  right: 50%;
+  margin: 0;
+}
+button {
+  margin-right: 5%;
+}
+
+button:nth-child(3) {
+  position: absolute;
+  right: 0;
+}
