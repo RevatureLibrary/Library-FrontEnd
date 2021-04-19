@@ -6,7 +6,7 @@ import { User } from "src/app/models/User";
 
 const headers = new HttpHeaders({
   "Content-Type": "application/json",
-  "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYxODYxNTg4MSwiaWF0IjoxNjE4NTg3MDgxfQ.AH8FxcP6aksTTkBh4gS2dItICbXQGps7vk_Q-qsi8Hc"
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdE5hbWUiOiJUZXN0IiwibGFzdE5hbWUiOiJBZG1pbiIsInN1YiI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkanZZUHdleFFRb2hEaTlqOXhYdVhJZUJsWE5hN1NxS1lSTjU1UHVnZzhVQ3RxTUt3ZzNmamUiLCJhdXRoIjoiQURNSU4iLCJleHAiOjE2MTg4OTQ5MTAsImlhdCI6MTYxODg2NjExMH0.SL9H5yahxCl1Cwkk9donPTJdgapa25FuIFb3bKxVkYc"
 });
 
 @Injectable({
@@ -18,6 +18,10 @@ export class DeleteUserService {
 
   getAllUsers():Observable<User[]> {
     return this.http.get<User[]>("/users", { headers: headers });
+  }
+
+  searchUsers(username:string):Observable<User[]> {
+    return this.http.get<User[]>("/users/search=" + username, { headers: headers });
   }
 
   deleteUser(user: User):Observable<User> {

@@ -12,8 +12,10 @@ import { FormFieldComponent } from './components/form-field/form-field.component
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+import { MatButtonModule } from '@angular/material/button';
 
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

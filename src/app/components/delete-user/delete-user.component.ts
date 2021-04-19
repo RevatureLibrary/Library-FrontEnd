@@ -9,7 +9,6 @@ import { DeleteUserService } from 'src/app/services/delete-user.service';
 })
 export class DeleteUserComponent implements OnInit {
   users:User[] = [];
-  randomString: string = "RANDOMSTRING";
 
   constructor(private deleteUserService: DeleteUserService) { }
 
@@ -25,4 +24,9 @@ export class DeleteUserComponent implements OnInit {
     });
   }
 
+  searchUser(username: string) {
+    this.deleteUserService.searchUsers(username).subscribe({
+      next: res => this.users = res
+    });
+  }
 }
