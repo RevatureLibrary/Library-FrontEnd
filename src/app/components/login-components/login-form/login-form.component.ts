@@ -1,8 +1,12 @@
-import { Component, OnInit, Input} from '@angular/core';
-import { from, Observable } from 'rxjs';
+import { Component, OnInit} from '@angular/core';
+import { first } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
 import { JWT } from 'src/app/models/JWT';
 import { LoginAttempt } from 'src/app/models/LoginAttempt';
 import { LoginService } from 'src/app/services/login.service';
+import { AlertService } from 'src/app/services/alert-service.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,49 +14,55 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  @Input() jwt!:JWT;
-  @Input() username:string="admin";
-  @Input() password:string= "pass";
- loginService:LoginService;
+  form!: FormGroup;
+  loading = false;
+  submitted = false;
 
-  constructor(loginService:LoginService) {
-    this.loginService = loginService;
+  
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private loginService: LoginService,
+    private alertService: AlertService
+    ) {
    }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+  });
   }
-
-  onDelete(jwt:JWT){
-    jwt.token = "";
-    for(const I of [1,2,3]) console.log(I);
-
-  }
-  submitLogin(username: string,password: string){
-
-    this.username = username;
-    this.password = password;
-    let ls:LoginAttempt = new LoginAttempt(this.username,this.password);
-    let res:Observable<any> = this.loginService.getToken(ls);
-    res.subscribe(
-       ((a)=>this.loginPass(a)),
-       ((a)=>this.loginFail(a)),
-       (()=>this.loginService.getToken));
-
-    
 
   
+  get f() { return this.form.controls; }
 
-  }
-  loginPass( a:any){
-    this.jwt = a;
-    alert("login success! token is {this.jwt}" + this.jwt.token)
-    console.log(this.jwt);
-  
-  }
-  loginFail(a:any){
-    alert("login failed")
-    console.log("login failed");
-    console.log(a);
+  submitLogin(){
+    this.submitted = true;
 
+    this.alertService.clear();
+
+    if (this.form.invalid) {
+      return;
   }
+
+  this.loading = true;
+  this.loginService.login(this.f.username.value, this.f.password.value)
+      .pipe(first())
+      .subscribe({
+          next: () => {
+              // get return url from query parameters or default to home page
+              const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+              alert("woo")
+              this.router.navigateByUrl(returnUrl);
+          },
+          error: (error: any) => {
+              this.alertService.error(error);
+              this.loading = false;
+          }
+      });
 }
+}
+
