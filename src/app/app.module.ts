@@ -13,6 +13,8 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
 import { MenuComponent } from './components/menu/menu.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table'
+import { MatInputModule } from '@angular/material/input'
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     MatButtonModule,
+    MatTableModule,
+    MatInputModule,
     BrowserAnimationsModule
   ],
   providers: [],

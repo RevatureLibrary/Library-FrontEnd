@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User';
 import { DeleteUserService } from 'src/app/services/delete-user.service';
 
 @Component({
@@ -8,14 +7,15 @@ import { DeleteUserService } from 'src/app/services/delete-user.service';
   styleUrls: ['./delete-user.component.css']
 })
 export class DeleteUserComponent implements OnInit {
+  displayedColumns: string[] = ["id", "username", "firstName", "lastName", "email", "created", "deleteButton"]; 
   users:User[] = [];
 
   constructor(private deleteUserService: DeleteUserService) { }
 
   ngOnInit(): void {
-    this.deleteUserService.getAllUsers().subscribe({
+    this.deleteUserService.getAllUsers().subscribe(({
       next: res => this.users = res
-    });
+    }));
   }
 
   deleteUser(user: User) {
@@ -30,3 +30,15 @@ export class DeleteUserComponent implements OnInit {
     });
   }
 }
+
+export interface User {
+  id: number;
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  created: string;
+  accountType: string;
+}
+
