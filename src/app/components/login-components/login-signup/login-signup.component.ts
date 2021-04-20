@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { JWT } from 'src/app/models/JWT';
+import { ActiveUser } from 'src/app/models/ActiveUser';
 import { LoginAttempt } from 'src/app/models/LoginAttempt';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -10,7 +10,6 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login-signup.component.css']
 })
 export class LoginSignupComponent implements OnInit {
-  jwt:JWT ={token:"fake"};
   @Input() username?:string;
   @Input() password?:string;
   loginAttempt!:LoginAttempt;
@@ -21,17 +20,4 @@ export class LoginSignupComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  submitLogin(username:string,password:string){
-    this.username = "username"
-    
-        this.loginService.getToken(new LoginAttempt(username,password)).subscribe( jtw =>{
-          this.jwt = jtw;
-          console.log("signup");
-          
-        });
-        let loginAttempt:LoginAttempt = new LoginAttempt(username,password);
-        this.loginService.getToken(loginAttempt);
-    
-      }
 }

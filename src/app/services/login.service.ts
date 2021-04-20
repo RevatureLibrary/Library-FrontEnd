@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { LoginAttempt } from '../models/LoginAttempt';
 import { Observable } from 'rxjs';
-import { JWT } from '../models/JWT';
+import { ActiveUser } from '../models/ActiveUser';
 
 const httpOptions = {
   headers: new HttpHeaders ({
@@ -18,7 +18,7 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-  getToken(la:LoginAttempt):Observable<any> {
+  getToken(la:LoginAttempt):Observable<ActiveUser> {
     return this.http.post<any>(this.authUrl,la,httpOptions);
   
   }

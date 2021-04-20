@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { from, Observable } from 'rxjs';
-import { JWT } from 'src/app/models/JWT';
+import { ActiveUser } from 'src/app/models/ActiveUser';
 import { LoginAttempt } from 'src/app/models/LoginAttempt';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -10,10 +10,12 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  @Input() jwt!:JWT;
   @Input() username:string="admin";
   @Input() password:string= "pass";
  loginService:LoginService;
+  user?: ActiveUser;
+
+  isActive!:Boolean
 
   constructor(loginService:LoginService) {
     this.loginService = loginService;
@@ -22,17 +24,12 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDelete(jwt:JWT){
-    jwt.token = "";
-    for(const I of [1,2,3]) console.log(I);
-
-  }
   submitLogin(username: string,password: string){
 
     this.username = username;
     this.password = password;
     let ls:LoginAttempt = new LoginAttempt(this.username,this.password);
-    let res:Observable<any> = this.loginService.getToken(ls);
+    let res:Observable<ActiveUser> = this.loginService.getToken(ls);
     res.subscribe(
        ((a)=>this.loginPass(a)),
        ((a)=>this.loginFail(a)),
@@ -43,11 +40,11 @@ export class LoginFormComponent implements OnInit {
   
 
   }
-  loginPass( a:any){
-    this.jwt = a;
-    alert("login success! token is {this.jwt}" + this.jwt.token)
-    console.log(this.jwt);
-  
+  loginPass( a: ActiveUser){
+    this.user = a;
+    alert("login success! token is user" + JSON.stringify(this.user));
+    localStorage.setItem("user", JSON.stringify(this.user));
+  //route to home
   }
   loginFail(a:any){
     alert("login failed")
@@ -55,4 +52,7 @@ export class LoginFormComponent implements OnInit {
     console.log(a);
 
   }
+
+
+
 }
