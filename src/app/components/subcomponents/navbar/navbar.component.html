@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <mat-toolbar-row class="header">
+    <span class="span">William Library</span>
+    <button mat-flat-button color="accent" (click)="logout()" class="logout">
+      Log Out
+    </button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row [class.mat-elevation-z8]="true" class="nav">
+    <button mat-button>Home</button>
+    <button mat-button>User Details</button>
+  </mat-toolbar-row>
+</mat-toolbar>
