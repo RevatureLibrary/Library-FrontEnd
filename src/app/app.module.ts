@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PatronDetailsComponent } from './patron-details/patron-details.component';
+import { PatronDetailsComponent } from './components/views/patron-details/patron-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
