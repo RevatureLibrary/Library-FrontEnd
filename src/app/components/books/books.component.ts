@@ -4,29 +4,26 @@ import { Book } from '../../models/Book';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
-  books:Book[];
-  constructor() { 
+  books: Book[];
+  constructor() {
     this.books = [];
-   }
+  }
 
   ngOnInit(): void {
     this.books = [
       {
         id: 1,
         title: 'Harry Potter',
-        author: 'JK Rowling'
+        author: 'JK Rowling',
       },
       {
         id: 2,
         title: 'Bible',
-        author: 'God'
-      }
-    ]
-
-    
+        author: 'God',
+      },
+    ];
   }
-
 }
