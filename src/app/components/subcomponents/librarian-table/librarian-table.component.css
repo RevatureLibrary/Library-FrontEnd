@@ -11,10 +11,26 @@ table {
   width: 100%;
 }
 
-.mat-column-checkout {
+.mat-column-status {
+  width: 100px;
+  padding-right: 50px;
+}
+
+button {
+  width: 75px;
+  margin: 0;
+}
+
+.mat-column-delete {
   position: relative;
   right: 0;
-  width: 90px;
+  width: 75px;
+}
+
+.mat-column-edit {
+  position: relative;
+  right: 1%;
+  width: 75px;
 }
 
 .mat-column-department {

@@ -14,10 +14,27 @@ mat-toolbar-row {
   margin: 0;
 }
 button {
-  margin-right: 5%;
+  margin-right: 5px;
+  height: 100%;
+  width: 8%;
 }
 
-button:nth-child(3) {
+.logout {
   position: absolute;
-  right: 0;
+  right: 1%;
+  height: 30px !important;
+  width: 75px !important;
+  line-height: normal;
+  text-align: center;
+  padding: 0px;
+}
+
+.span {
+  margin: auto;
+  font-size: 150%;
+  color: white;
+}
+
+.header {
+  background-color: rgb(63, 27, 194);
 }

@@ -5,11 +5,16 @@ export interface Book {
   title: string;
   position: number;
   author: string;
-  publisher: string;
+  status: string;
   isbn: string;
   department: string;
 }
 export interface Department {
+  value: string;
+  viewValue: string;
+}
+
+export interface Status {
   value: string;
   viewValue: string;
 }
@@ -20,7 +25,7 @@ const BOOK_DATA: Book[] = [
     title: 'Hydrogen',
     department: 'Science',
     author: 'H',
-    publisher: 'Scholastic',
+    status: 'RTS',
     isbn: '0-7475-3269-9',
   },
   {
@@ -28,7 +33,7 @@ const BOOK_DATA: Book[] = [
     title: 'Helium',
     department: 'Math',
     author: 'He',
-    publisher: 'Scholastic',
+    status: 'Available',
     isbn: '0-7475-3269-9',
   },
   {
@@ -36,7 +41,7 @@ const BOOK_DATA: Book[] = [
     title: 'Lithium',
     department: 'Science',
     author: 'Li',
-    publisher: 'Scholastic',
+    status: 'Available',
     isbn: '0-7475-3269-9',
   },
   {
@@ -44,7 +49,7 @@ const BOOK_DATA: Book[] = [
     title: 'Beryllium',
     department: 'Math',
     author: 'Be',
-    publisher: 'Scholastic',
+    status: 'RTS',
     isbn: '0-7475-3269-9',
   },
   {
@@ -52,7 +57,7 @@ const BOOK_DATA: Book[] = [
     title: 'Boron',
     department: 'Science',
     author: 'Bet',
-    publisher: 'Scholastic',
+    status: 'Available',
     isbn: '0-7475-3269-9',
   },
   {
@@ -60,7 +65,7 @@ const BOOK_DATA: Book[] = [
     title: 'Carbon',
     department: 'Math',
     author: 'C',
-    publisher: 'Scholastic',
+    status: 'Available',
     isbn: '0-7475-3269-9',
   },
   {
@@ -68,7 +73,7 @@ const BOOK_DATA: Book[] = [
     title: 'Nitrogen',
     department: 'Science',
     author: 'N',
-    publisher: 'Scholastic',
+    status: 'RTS',
     isbn: '0-7475-3269-9',
   },
   {
@@ -76,7 +81,7 @@ const BOOK_DATA: Book[] = [
     title: 'Oxygen',
     department: 'Math',
     author: 'O',
-    publisher: 'Scholastic',
+    status: 'Available',
     isbn: '0-7475-3269-9',
   },
   {
@@ -84,7 +89,7 @@ const BOOK_DATA: Book[] = [
     title: 'Fluorine',
     department: 'Science',
     author: 'F',
-    publisher: 'Scholastic',
+    status: 'RTS',
     isbn: '0-7475-3269-9',
   },
   {
@@ -92,31 +97,39 @@ const BOOK_DATA: Book[] = [
     title: 'Neon',
     department: 'Math',
     author: 'Ne',
-    publisher: 'Scholastic',
+    status: 'Available',
     isbn: '0-7475-3269-9',
   },
 ];
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
+  selector: 'app-librarian-table',
+  templateUrl: './librarian-table.component.html',
+  styleUrls: ['./librarian-table.component.css'],
 })
-export class TableComponent {
+export class LibrarianTableComponent {
   displayedColumns: string[] = [
     'position',
     'title',
     'author',
-    'publisher',
     'isbn',
+    'status',
     'department',
-    'checkout',
+    'edit',
+    'delete',
   ];
   departments: Department[] = [
     { value: 'All', viewValue: 'All' },
     { value: 'Science', viewValue: 'Science' },
     { value: 'Math', viewValue: 'Math' },
   ];
+
+  status: Status[] = [
+    { value: 'All', viewValue: 'All' },
+    { value: 'Available', viewValue: 'Availabe' },
+    { value: 'RTS', viewValue: 'RTS' },
+  ];
+
   selectedDepartment = this.departments[0].value;
   dataSource = new MatTableDataSource(BOOK_DATA);
 
@@ -157,7 +170,7 @@ export class TableComponent {
     const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
 
     this.dataSource.filterPredicate = function (data, filter: string): boolean {
-      return data.publisher.trim().toLowerCase().includes(filter);
+      return data.status.trim().toLowerCase().includes(filter);
     };
 
     this.dataSource.filter = filterValue.trim().toLowerCase();

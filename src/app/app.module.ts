@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './components/subcomponents/navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { LibrarianTableComponent } from './components/subcomponents/librarian-table/librarian-table.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     LibrarianHomeComponent,
     TableComponent,
     NavbarComponent,
+    LibrarianTableComponent,
   ],
   imports: [
     BrowserModule,
