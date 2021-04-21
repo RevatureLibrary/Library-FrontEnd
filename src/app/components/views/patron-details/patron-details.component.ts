@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './patron-details.component.html',
   styleUrls: ['./patron-details.component.css']
 })
-export class PatronDetailsComponent implements OnInit {
+export class PatronDetailsComponent{
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  firstName = 'Patrick';
+  lastName = 'Gonzalez';
+  email = 'pgonzalez@gmail.com';
+  username = 'pgonzalez';
+
 
 }

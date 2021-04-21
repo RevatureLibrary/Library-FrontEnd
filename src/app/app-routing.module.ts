@@ -3,11 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BooksComponent } from './components/books/books.component';
 import { NavbarComponent } from './components/subcomponents/navbar/navbar.component';
 import { TableComponent } from './components/subcomponents/table/table.component';
-import { SidebarComponent } from './components/subcomponents/sidebar/sidebar.component';
-import { CardsComponent } from './components/cards/cards.component';
-import { FormFieldComponent } from './components/form-field/form-field.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { PatronDetailsComponent } from './components/views/patron-details/patron-details.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginSignupComponent},
@@ -19,4 +16,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginSignupComponent, NavbarComponent]
+export const routingComponents = [LoginSignupComponent, NavbarComponent, PatronDetailsComponent]
