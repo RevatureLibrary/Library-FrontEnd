@@ -3,43 +3,42 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ActiveUser } from 'src/app/models/ActiveUser';
 import { LoginAttempt } from 'src/app/models/LoginAttempt';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/login-service/login.service';
 
 @Component({
   selector: 'app-login-signup',
   templateUrl: './login-signup.component.html',
-  styleUrls: ['./login-signup.component.css']
+  styleUrls: ['./login-signup.component.css'],
 })
 export class LoginSignupComponent implements OnInit {
-  @Input() username?:string;
-  @Input() password?:string;
-  loginAttempt!:LoginAttempt;
-  jtw?:Observable<any>;
-  returnClick(){
-
-    this.router.navigate(['login'])
-    }
-  constructor(
-    private loginService:LoginService,
-    private router:Router
-    ) { }
-
-  ngOnInit() {
-
+  @Input() username?: string;
+  @Input() password?: string;
+  loginAttempt!: LoginAttempt;
+  jtw?: Observable<any>;
+  returnClick() {
+    this.router.navigate(['login']);
   }
+  constructor(private loginService: LoginService, private router: Router) {}
 
-  submitSignUp(username:string,password:string,passCheck:string,fname:string,lname:string,email:string){
-   let newUser = new ActiveUser
-   newUser.username= username;
-   newUser.id = 0;
-   if(passCheck==password) newUser.password=password;
-   newUser.firstName = fname;
-   newUser.lastName = lname;
-   newUser.email=email;
+  ngOnInit() {}
 
-   console.log(JSON.stringify(newUser));
-   let success:Promise<ActiveUser> = this.loginService.signUp(newUser);
+  submitSignUp(
+    username: string,
+    password: string,
+    passCheck: string,
+    fname: string,
+    lname: string,
+    email: string
+  ) {
+    let newUser = new ActiveUser();
+    newUser.username = username;
+    newUser.id = 0;
+    if (passCheck == password) newUser.password = password;
+    newUser.firstName = fname;
+    newUser.lastName = lname;
+    newUser.email = email;
 
-
+    console.log(JSON.stringify(newUser));
+    let success: Promise<ActiveUser> = this.loginService.signUp(newUser);
   }
 }
