@@ -4,4 +4,7 @@ export class Book {
     author!:string;
     isbn!:number;
     publisher!:string;
+    condition!:string;
+    bookStatus!:string;
+    departments!:string[];
 }
