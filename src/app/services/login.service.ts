@@ -14,18 +14,32 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoginService {
+  regUrl: string = 'http://localhost:8080/library/users';
+  signUp(newUser: ActiveUser): Promise<ActiveUser> {
+    return this.http.post<ActiveUser>(this.regUrl,newUser,httpOptions).toPromise<ActiveUser>();
+  }
   authUrl:string = 'http://localhost:8080/library/authentication';
 
   constructor(private http:HttpClient) { }
 
-  getToken(la:LoginAttempt):Observable<ActiveUser> {
-    return this.http.post<any>(this.authUrl,la,httpOptions);
-  
+  login(la:LoginAttempt):Observable<ActiveUser> {
+    return this.http.post<ActiveUser>(this.authUrl,la,httpOptions);  
+  }
+
+  logout(){
+    localStorage.removeItem("user");
   }
 
 
-
-
-
-
+  getHeaders():HttpHeaders|null{
+    let user = localStorage.getItem("user");
+    if (user == null)return null;
+    let activeUser:ActiveUser = JSON.parse(user);
+    let AHead = new HttpHeaders;
+    AHead.append("Authorization",("Bearer " + activeUser.token ));
+    AHead.append("Content-Type","application/json");
+    return AHead;    
+  }
+  
+  
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ActiveUser } from 'src/app/models/ActiveUser';
 import { LoginAttempt } from 'src/app/models/LoginAttempt';
@@ -14,10 +15,31 @@ export class LoginSignupComponent implements OnInit {
   @Input() password?:string;
   loginAttempt!:LoginAttempt;
   jtw?:Observable<any>;
+  returnClick(){
 
-  constructor(private loginService:LoginService) { }
+    this.router.navigate(['login'])
+    }
+  constructor(
+    private loginService:LoginService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
+
+  }
+
+  submitSignUp(username:string,password:string,passCheck:string,fname:string,lname:string,email:string){
+   let newUser = new ActiveUser
+   newUser.username= username;
+   newUser.id = 0;
+   if(passCheck==password) newUser.password=password;
+   newUser.firstName = fname;
+   newUser.lastName = lname;
+   newUser.email=email;
+
+   console.log(JSON.stringify(newUser));
+   let success:Promise<ActiveUser> = this.loginService.signUp(newUser);
+
 
   }
 }
