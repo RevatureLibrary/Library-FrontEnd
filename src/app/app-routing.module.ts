@@ -4,7 +4,7 @@ import { LoginFormComponent } from './components/login-components/login-form/log
 import { LoginSignupComponent } from './components/login-components/login-signup/login-signup.component';
 
 const routes: Routes = [
-  {path: '' , component:LoginFormComponent},
+  {path: 'home' , component:LoginFormComponent},
   {path: 'sign-up', component:LoginSignupComponent },
   {path: 'login' , component:LoginFormComponent},
 

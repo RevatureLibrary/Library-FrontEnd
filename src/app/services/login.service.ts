@@ -40,6 +40,13 @@ export class LoginService {
     AHead.append("Content-Type","application/json");
     return AHead;    
   }
+
+  isLogedIn():boolean{
+    let user = localStorage.getItem("user");
+    if (user == null)return false;
+
+    return true;
+  }
   
   
 }
