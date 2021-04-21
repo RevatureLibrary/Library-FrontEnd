@@ -15,6 +15,7 @@ import { TableComponent } from './components/subcomponents/table/table.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { BooksComponent } from './components/books/books.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BooksComponent } from './components/books/books.component';
     MatInputModule,
     MatFormFieldModule,
     MatTableModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

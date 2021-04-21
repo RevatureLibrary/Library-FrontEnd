@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Checkout } from 'src/app/models/Checkout';
+import { PatronDetailsService } from 
 
 @Component({
   selector: 'app-patron-details',
@@ -9,14 +10,17 @@ import { HttpClient } from '@angular/common/http';
 
 
 
-export class PatronDetailsComponent{
+export class PatronDetailsComponent implements OnInit{
+  public checkouts:Checkout[] = [];
 
-  constructor() { }
 
-  firstName = 'Patrick';
-  lastName = 'Gonzalez';
-  email = 'pgonzalez@gmail.com';
-  username = 'pgonzalez';
+  constructor(private patronDetailsService: PatronDetailsService) {  }
+
+  ngOnInit(): void{
+    this.patronDetailsService.getAllCheckoutsByUserName().subscribe(
+      data => this.checkouts = data
+    );
+  }
 
 
 }
