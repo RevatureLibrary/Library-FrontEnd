@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Checkout } from 'src/app/models/Checkout';
-import { PatronDetailsService } from 
+import { PatronDetailsService } from 'src/app/services/patron-details.service';
 
 @Component({
   selector: 'app-patron-details',
