@@ -8,6 +8,8 @@ phases:
   build:
     commands:
       - ng build --prod
-  post_build:
-    commands:
-      - aws s3 sync dist/ s3://$BUCKET_NAME --delete
+  artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist/william-library
