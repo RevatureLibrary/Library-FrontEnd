@@ -9,7 +9,7 @@ phases:
     commands:
       - ng build --prod
   artifacts:
-  files:
-    - "**/*"
-  discard-paths: no
-  base-directory: dist/william-library
+    files:
+      - "**/*"
+    discard-paths: no
+    base-directory: dist/william-library
