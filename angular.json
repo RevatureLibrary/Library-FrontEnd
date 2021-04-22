@@ -69,7 +69,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "william-library:build"
+            "browserTarget": "william-library:build",
             "proxyConfig": "./proxy.conf.js"
           },
           "configurations": {
