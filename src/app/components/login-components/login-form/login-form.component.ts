@@ -21,7 +21,11 @@ export class LoginFormComponent implements OnInit {
     this.loginService = loginService;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('user')) {
+      this.router.navigate(['home'])
+    }
+  }
 
   registerClick() {
     this.router.navigate(['sign-up']);
@@ -40,6 +44,7 @@ export class LoginFormComponent implements OnInit {
   loginPass(a: ActiveUser) {
     this.user = a;
     alert('login success! token is user' + JSON.stringify(this.user));
+    localStorage.setItem('user', JSON.stringify(this.user));
     this.router.navigate(['home']);
     //route to home
   }

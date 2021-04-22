@@ -22,6 +22,9 @@ import { NavbarComponent } from './components/subcomponents/navbar/navbar.compon
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LibrarianTableComponent } from './components/subcomponents/librarian-table/librarian-table.component';
+import { ToolbarDirective } from './directives/toolbar.directive';
+import { LoginComponent } from './components/views/login/login.component';
+import { SignupComponent } from './components/views/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { LibrarianTableComponent } from './components/subcomponents/librarian-ta
     LoginAuthTokenComponent,
     LibrarianTableComponent,
     NavbarComponent,
+    ToolbarDirective,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

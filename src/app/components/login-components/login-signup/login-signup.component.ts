@@ -38,7 +38,14 @@ export class LoginSignupComponent implements OnInit {
     newUser.lastName = lname;
     newUser.email = email;
 
-    console.log(JSON.stringify(newUser));
     let success: Promise<ActiveUser> = this.loginService.signUp(newUser);
+    if (success === null) alert('sign up failed');
+    success.then(
+      () => {
+        localStorage.setItem('user', JSON.stringify(success));
+        this.router.navigate(['']);
+      },
+      () => alert('sign up failed')
+    );
   }
 }
