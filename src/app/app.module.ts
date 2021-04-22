@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooksComponent } from './components/books/books.component';
+<<<<<<< HEAD
 import { LoginSignupComponent } from './components/login-components/login-signup/login-signup.component';
 import { LoginFormComponent } from './components/login-components/login-form/login-form.component';
 import { LoginAuthTokenComponent } from './components/login-components/login-auth-token/login-auth-token.component';
@@ -25,15 +26,30 @@ import { LibrarianTableComponent } from './components/subcomponents/librarian-ta
 import { ToolbarDirective } from './directives/toolbar.directive';
 import { LoginComponent } from './components/views/login/login.component';
 import { SignupComponent } from './components/views/signup/signup.component';
+=======
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { TableComponent } from './components/table/table.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { FormFieldComponent } from './components/form-field/form-field.component';
+import { LoginSignupComponent } from './components/login-signup/login-signup.component';
+import { MenuComponent } from './components/menu/menu.component';
+>>>>>>> 3caf8020b6336b073befa2a8e3fde0c4e07bac8e
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
+<<<<<<< HEAD
     UserHomeComponent,
     LibrarianHomeComponent,
+=======
+    NavbarComponent,
+>>>>>>> 3caf8020b6336b073befa2a8e3fde0c4e07bac8e
     TableComponent,
     LoginSignupComponent,
+<<<<<<< HEAD
     LoginFormComponent,
     LoginAuthTokenComponent,
     LibrarianTableComponent,
@@ -41,6 +57,9 @@ import { SignupComponent } from './components/views/signup/signup.component';
     ToolbarDirective,
     LoginComponent,
     SignupComponent,
+=======
+    MenuComponent
+>>>>>>> 3caf8020b6336b073befa2a8e3fde0c4e07bac8e
   ],
   imports: [
     BrowserModule,
