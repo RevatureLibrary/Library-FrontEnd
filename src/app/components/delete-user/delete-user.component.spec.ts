@@ -22,4 +22,6 @@ describe('DeleteUserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });

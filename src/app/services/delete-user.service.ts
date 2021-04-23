@@ -6,7 +6,7 @@ import { User } from "src/app/components/delete-user/delete-user.component";
 
 const headers = new HttpHeaders({
   "Content-Type": "application/json",
-  "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdE5hbWUiOiJUZXN0IiwibGFzdE5hbWUiOiJBZG1pbiIsInN1YiI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkanZZUHdleFFRb2hEaTlqOXhYdVhJZUJsWE5hN1NxS1lSTjU1UHVnZzhVQ3RxTUt3ZzNmamUiLCJhdXRoIjoiQURNSU4iLCJleHAiOjE2MTg5NjQ1OTQsImlhdCI6MTYxODkzNTc5NH0.1NCSWgYZaBiE2IORxUD3a82Bn1r5tjytj_2CKYeuQ3w"
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdE5hbWUiOiJUZXN0IiwibGFzdE5hbWUiOiJBZG1pbiIsInN1YiI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkanZZUHdleFFRb2hEaTlqOXhYdVhJZUJsWE5hN1NxS1lSTjU1UHVnZzhVQ3RxTUt3ZzNmamUiLCJhdXRoIjoiQURNSU4iLCJleHAiOjE2MTkxNTE2NDcsImlhdCI6MTYxOTEyMjg0N30.gHUwaIgqTxOeKKmunERiPWMIIIPuuIJcHy_5E3Vbrvw"
 });
 
 @Injectable({

@@ -1,8 +1,12 @@
 <div>
-<mat-form-field>
-    <input matInput #searchBox type="text" (keydown.enter)="searchUser(searchBox.value)" placeholder="Search by username here">
-</mat-form-field>
-<button mat-flat-button (click)="searchUser(searchBox.value)" color="primary">Search</button>
+
+    <div class="search">
+        <mat-form-field>
+            <input matInput #searchBox type="text" (keydown.enter)="searchUser(searchBox.value)" placeholder="Search by username here">
+        </mat-form-field>
+        <button mat-flat-button (click)="searchUser(searchBox.value)" color="primary">Search</button>
+    </div>
+
 
 
 
