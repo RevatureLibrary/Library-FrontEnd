@@ -1,0 +1,49 @@
+.example-container {
+  position: absolute;
+  width: 98%;
+  left: 1%;
+  right: 1%;
+  top: 150px;
+  bottom: 1%;
+  overflow: auto;
+}
+table {
+  width: 100%;
+}
+
+.mat-column-status {
+  width: 100px;
+  padding-right: 50px;
+}
+
+button {
+  width: 75px;
+  margin: 0;
+}
+
+.mat-column-delete {
+  position: relative;
+  right: 0;
+  width: 75px;
+}
+
+.mat-column-edit {
+  position: relative;
+  right: 1%;
+  width: 75px;
+}
+
+.mat-column-department {
+  width: 100px;
+  padding-right: 50px;
+}
+
+.mat-select {
+  position: relative;
+  width: 100px;
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
