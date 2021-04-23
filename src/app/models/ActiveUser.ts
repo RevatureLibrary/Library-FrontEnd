@@ -7,7 +7,4 @@ export class ActiveUser {
     token?: string;
     password?:string;
     email?:string;
-    
-
-
 }

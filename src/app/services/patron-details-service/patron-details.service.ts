@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Checkout } from 'src/app/models/Checkout';
 import { User } from 'src/app//models/User';
+import { ActiveUser } from 'src/app/models/ActiveUser';
 
 // Gotta Grab the Token before trying this
 const headers = new HttpHeaders({
@@ -25,10 +26,11 @@ export class PatronDetailsService {
       return this.http.put<Checkout>("/checkouts/" + checkout.id, {headers: headers}).toPromise<Checkout>();
   }
 
-  getUserFromLocal():User | null{
+  getUserFromLocal():ActiveUser | null{
     let user = localStorage.getItem('user');
     if (user === null) return null;
     let activeUser: ActiveUser = JSON.parse('user');
+    return activeUser;
   }
 
 }

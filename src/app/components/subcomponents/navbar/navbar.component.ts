@@ -31,6 +31,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  routeToUserDetails(){
+    this.router.navigate(['userdetails']);
+  }
+
   isLibrarian = false;
   isUser = localStorage.getItem('user');
 
