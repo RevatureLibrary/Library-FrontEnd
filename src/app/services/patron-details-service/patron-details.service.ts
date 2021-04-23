@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Checkout } from 'src/app/models/Checkout';
+import { User } from 'src/app//models/User';
 
 // Gotta Grab the Token before trying this
 const headers = new HttpHeaders({
@@ -16,12 +17,18 @@ export class PatronDetailsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCheckoutsByUserName():Observable<Checkout[]> {
-    return this.http.get<Checkout[]>("/checkouts/username=pgonzalez", { headers: headers });
+  getAllCheckoutsByUserName():Promise<Checkout[]> {
+    return this.http.get<Checkout[]>("/checkouts/username=pgonzalez", { headers: headers }).toPromise<Checkout[]>();
   }
 
-  returnBook(checkout: Checkout):Observable<Checkout>{
-      return this.http.put<Checkout>("/checkouts/" + checkout.id, {headers: headers});
+  returnBook(checkout: Checkout):Promise<Checkout>{
+      return this.http.put<Checkout>("/checkouts/" + checkout.id, {headers: headers}).toPromise<Checkout>();
+  }
+
+  getUserFromLocal():User | null{
+    let user = localStorage.getItem('user');
+    if (user === null) return null;
+    let activeUser: ActiveUser = JSON.parse('user');
   }
 
 }
