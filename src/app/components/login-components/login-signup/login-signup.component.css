@@ -1,0 +1,16 @@
+.signUpForm {
+  padding-right: 25;
+  inline-size: 0%;
+}
+
+div {
+  position: fixed;
+  top: 150px;
+  right: 50%;
+  margin: auto;
+  padding: 2.5%;
+}
+
+form {
+  padding-right: 50%;
+}

@@ -13,6 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TableComponent } from './components/subcomponents/table/table.component';
 import { NavbarComponent } from './components/subcomponents/navbar/navbar.component';
+import { LibrarianTableComponent } from './components/subcomponents/librarian-table/librarian-table.component';
+import { LibrarianHomeComponent } from './components/views/librarian-home/librarian-home.component';
+import { LoginAuthTokenComponent } from './components/login-components/login-auth-token/login-auth-token.component';
+import { LoginFormComponent } from './components/login-components/login-form/login-form.component';
+import { LoginSignupComponent } from './components/login-components/login-signup/login-signup.component';
+
 
 export const CONFIG = {
     "modules" : [
@@ -23,6 +29,8 @@ export const CONFIG = {
         HttpClientModule
     ],
     "comps" :[
-        TableComponent, NavbarComponent
+        TableComponent, NavbarComponent,
+        LoginSignupComponent, LoginFormComponent, LibrarianHomeComponent,
+        LoginAuthTokenComponent, LibrarianTableComponent
     ]
 }

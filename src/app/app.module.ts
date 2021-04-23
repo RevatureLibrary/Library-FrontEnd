@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { CONFIG } from './import-config';
 import { AppComponent } from './app.component';
+import { ToolbarDirective } from './directives/toolbar.directive';
 
 
 @NgModule({
@@ -16,6 +17,6 @@ import { AppComponent } from './app.component';
     CONFIG.modules
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
