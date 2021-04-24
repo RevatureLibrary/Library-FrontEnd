@@ -24,6 +24,7 @@ import { LibrarianTableComponent } from './components/subcomponents/librarian-ta
 import { ToolbarDirective } from './directives/toolbar.directive';
 import { LoginComponent } from './components/views/login/login.component';
 import { SignupComponent } from './components/views/signup/signup.component';
+import { AddEditBooksComponent } from './add-edit-books/add-edit-books.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SignupComponent } from './components/views/signup/signup.component';
     ToolbarDirective,
     LoginComponent,
     SignupComponent,
+    AddEditBooksComponent,
   ],
   imports: [
     BrowserModule,
