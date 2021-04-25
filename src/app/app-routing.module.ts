@@ -6,7 +6,7 @@ import { LibrarianHomeComponent } from './components/views/librarian-home/librar
 import { LoginComponent } from './components/views/login/login.component';
 import { SignupComponent } from './components/views/signup/signup.component';
 import { UserHomeComponent } from './components/views/user-home/user-home.component';
-import { DeleteUserComponent } from "./components/delete-user/delete-user.component";
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 
 const routes: Routes = [
   { path: 'home', component: UserHomeComponent },
@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupComponent },
   { path: '', component: LoginComponent },
   { path: 'librarian', component: LibrarianHomeComponent },
-  { path: 'delete_users', component: DeleteUserComponent}
 ];
 
 @NgModule({

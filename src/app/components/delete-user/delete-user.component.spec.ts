@@ -23,8 +23,5 @@ describe('DeleteUserComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize values', () => {
-    
-  });
   
 });
