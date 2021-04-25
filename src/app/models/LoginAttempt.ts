@@ -1,10 +1,9 @@
-export class LoginAttempt{
-    username!: string;
-    password!:string;
+export class LoginAttempt {
+  username!: string;
+  password!: string;
 
-    constructor(un:string,pw:string){
-        this.username = un;
-        this.password = pw;
-    }
-
+  constructor(un: string, pw: string) {
+    this.username = un;
+    this.password = pw;
+  }
 }

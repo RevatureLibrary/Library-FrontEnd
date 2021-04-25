@@ -32,6 +32,7 @@
             ],
             "styles": [
 
+
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
@@ -70,7 +71,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "william-library:build"
+            "browserTarget": "william-library:build",
+            "proxyConfig": "./proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -96,6 +98,7 @@
               "src/assets"
             ],
             "styles": [
+
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],

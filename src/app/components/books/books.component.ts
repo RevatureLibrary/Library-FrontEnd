@@ -12,18 +12,5 @@ export class BooksComponent implements OnInit {
     this.books = [];
   }
 
-  ngOnInit(): void {
-    this.books = [
-      {
-        id: 1,
-        title: 'Harry Potter',
-        author: 'JK Rowling',
-      },
-      {
-        id: 2,
-        title: 'Bible',
-        author: 'God',
-      },
-    ];
-  }
+  ngOnInit(): void {}
 }

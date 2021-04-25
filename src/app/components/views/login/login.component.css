@@ -1,0 +1,18 @@
+mat-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+mat-toolbar-row {
+  position: relative;
+}
+.span {
+  margin: auto;
+  font-size: 150%;
+  color: white;
+}
+
+.header {
+  background-color: rgb(63, 27, 194);
+}
