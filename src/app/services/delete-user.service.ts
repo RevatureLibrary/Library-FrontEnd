@@ -26,7 +26,7 @@ export class DeleteUserService {
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<ActiveUser[]> {
-    return this.http.get<ActiveUser[]>('http://18.222.177.219:8080/users', {
+    return this.http.get<ActiveUser[]>('http://localhost:8080/users', {
       headers: {
         Authorization: 'Bearer ' + this.activeUser.token,
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export class DeleteUserService {
 
   searchUsers(username: string): Observable<ActiveUser[]> {
     return this.http.get<ActiveUser[]>(
-      'http://18.222.177.219:8080/users/search=' + username,
+      'http://localhost:8080/users/search=' + username,
       {
         headers: {
           Authorization: 'Bearer ' + this.activeUser.token,
@@ -47,9 +47,9 @@ export class DeleteUserService {
   }
   //18.222.177.219
   deleteUser(id: number) {
-    return this.http.delete('http://localHost:8080/library/users/'+ id.toString(), {
+    return this.http.delete<any>('http://localhost:8080/users/'+ id.toString(), {
       headers: {
-        Authorization: 'Bearer ' + this.activeUser.token,
+        'Authorization': 'Bearer ' + this.activeUser.token,
         'Content-Type': 'application/json',
       },
     });

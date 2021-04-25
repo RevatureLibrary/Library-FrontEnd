@@ -16,6 +16,10 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupComponent },
   { path: '', component: LoginComponent },
   { path: 'librarian', component: LibrarianHomeComponent },
+  
+  { path: '**', redirectTo: '' }
+  
+  ,
 ];
 
 @NgModule({

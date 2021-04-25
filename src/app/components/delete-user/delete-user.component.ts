@@ -38,11 +38,11 @@ export class DeleteUserComponent implements OnInit {
 
   deleteUser(id: number) {
     console.log(id);
-    this.deleteUserService.deleteUser(id);
-    // .subscribe({
-    //   next: (res) =>
-    //     (this.users = this.users.filter((val) => val.id !== res.id)),
-    // });
+    this.deleteUserService.deleteUser(id)
+    .subscribe({
+      next: (res) =>
+        (this.users = this.users.filter((val) => val.id !== res.id)),
+    });
   }
 
   searchUser(username: string) {
