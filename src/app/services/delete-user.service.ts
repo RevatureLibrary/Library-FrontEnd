@@ -45,6 +45,8 @@ export class DeleteUserService {
       "Authorization": "Bearer " + currentUser.token
     });
 
+    console.log(user);
+
     return this.http.delete<User>("http://18.219.208.21:8080/users/" + user.id, { headers: headers});
   }
 
