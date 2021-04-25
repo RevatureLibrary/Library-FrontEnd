@@ -1,0 +1,17 @@
+.signUpForm {
+  padding-right: 25;
+  inline-size: 0%;
+}
+
+div {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 2.5%;
+  padding-left: 2.5%;
+}
+
+form {
+  padding-right: 50%;
+}

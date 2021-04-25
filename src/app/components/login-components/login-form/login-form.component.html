@@ -1,0 +1,15 @@
+<div [class.mat-elevation-z8]=true>
+    <h1>Login</h1>
+    <form class = "loginForm" >
+        <mat-form-field appearance="fill">
+        <mat-label>username</mat-label><input matInput name="username" #un  type="text" value=""/>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+        <mat-label>password</mat-label>
+        <input matInput name="password" #pw  type="password" value=""/>
+    </mat-form-field>
+   
+</form>
+<button mat-flat-button (click)="submitLogin(un.value,pw.value)" color="primary" >Login</button><br><br>
+<button mat-flat-button (click)="registerClick()" color="primary" >New Patron?</button>
+</div>
