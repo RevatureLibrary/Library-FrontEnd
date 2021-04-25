@@ -24,7 +24,7 @@ export class PatronDetailsTableDataSource extends DataSource<Checkout>{
     constructor(private patronDetailsService:PatronDetailsService, private username:string){
         super();
         this.patronDetailsService.getAllCheckoutsByUserName(this.username).then(res => this.data = res);
-
+        console.log(this.data);
     }
 
 

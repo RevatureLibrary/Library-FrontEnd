@@ -9,20 +9,24 @@ import { LoginService } from 'src/app/services/login-service/login.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PatronDetailsService {
+
+
 
   constructor(private http: HttpClient, private loginService: LoginService) { }
 
   getAllCheckoutsByUserName(username:string):Promise<Checkout[]> {
-
-    return this.http.get<Checkout[]>('/checkouts/username=' + username, {
-      headers: {"":"", "Authorization":"Bearer " + this.activeUser.token};
-    }).toPromise<Checkout[]>();
+    console.log(httpOptions.toString());
+    return this.http.get<Checkout[]>("/checkouts/username=" + username, httpOptions).toPromise<Checkout[]>();
   }
 
   returnBook(checkout: Checkout):Promise<Checkout>{
-    let headers: HttpHeaders | null = this.loginService.getHeaders();
-      return this.http.put<Checkout>("/checkouts/" + checkout.id, headers).toPromise<Checkout>();
+      return this.http.put<Checkout>("/checkouts/" + checkout.id, httpOptions).toPromise<Checkout>();
   }
 
 }
+
+const httpOptions = {
+  headers: LoginService.prototype.getHeaders()
+};

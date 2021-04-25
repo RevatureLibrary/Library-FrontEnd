@@ -32,9 +32,11 @@ export class LoginService {
     localStorage.removeItem('user');
   }
 
-  getHeaders(): HttpHeaders | null {
+  getHeaders(): HttpHeaders | undefined{
     let user = localStorage.getItem('user');
-    if (user == null) return null;
+    if (user == null){
+      return undefined;
+    }
     let activeUser: ActiveUser = JSON.parse(user);
     let AHead = new HttpHeaders();
     AHead.append('Authorization', 'Bearer ' + activeUser.token);
