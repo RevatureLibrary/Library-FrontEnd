@@ -1,7 +1,11 @@
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .search {
-    float: right;
+  float: right;
+}
+.yes {
+  position: relative;
+  top: 125px;
 }
