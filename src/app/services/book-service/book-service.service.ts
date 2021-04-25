@@ -5,7 +5,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { fromEvent, Observable, throwError } from 'rxjs';
 import { Book } from '../../models/Book';
 import { map, catchError } from 'rxjs/operators';
-import { CheckOutBook } from 'src/app/models/CheckABookOut';
+import { CheckOutBook } from '../../models/CheckABookOut';
 
 @Injectable({
   providedIn: 'root',
