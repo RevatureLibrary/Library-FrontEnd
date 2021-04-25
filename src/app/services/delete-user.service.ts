@@ -3,10 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
 
 import { User } from "src/app/components/delete-user/delete-user.component";
+import { ActiveUser } from '../models/ActiveUser';
 
 const headers = new HttpHeaders({
-  "Content-Type": "application/json",
-  "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdE5hbWUiOiJUZXN0IiwibGFzdE5hbWUiOiJBZG1pbiIsInN1YiI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkanZZUHdleFFRb2hEaTlqOXhYdVhJZUJsWE5hN1NxS1lSTjU1UHVnZzhVQ3RxTUt3ZzNmamUiLCJhdXRoIjoiQURNSU4iLCJleHAiOjE2MTkxNTE2NDcsImlhdCI6MTYxOTEyMjg0N30.gHUwaIgqTxOeKKmunERiPWMIIIPuuIJcHy_5E3Vbrvw"
+  "Content-Type": "application/json"
 });
 
 @Injectable({
@@ -17,15 +17,24 @@ export class DeleteUserService {
   constructor(private http: HttpClient) { }
 
   getAllUsers():Observable<User[]> {
-    return this.http.get<User[]>("/users", { headers: headers });
+    let user = localStorage.getItem('user');
+    let currentUser:ActiveUser = JSON.parse(user!);
+    headers.set("Authorization", "Bearer " + currentUser.token)
+    return this.http.get<User[]>("http://18.222.177.219:8080/users", { headers: headers });
   }
 
   searchUsers(username:string):Observable<User[]> {
-    return this.http.get<User[]>("/users/search=" + username, { headers: headers });
+    let user = localStorage.getItem('user');
+    let currentUser:ActiveUser = JSON.parse(user!);
+    headers.set("Authorization", "Bearer " + currentUser.token)
+    return this.http.get<User[]>("http://18.222.177.219:8080/users/search=" + username, { headers: headers });
   }
 
   deleteUser(user: User):Observable<User> {
-    return this.http.delete<User>("/users/" + user.id, { headers: headers});
+    let aUser = localStorage.getItem('user');
+    let currentUser:ActiveUser = JSON.parse(aUser!);
+    headers.set("Authorization", "Bearer " + currentUser.token)
+    return this.http.delete<User>("http://18.222.177.219:8080/users/" + user.id, { headers: headers});
   }
 
 }
