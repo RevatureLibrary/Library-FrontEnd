@@ -16,15 +16,30 @@ import { PatronDetailsService } from 'src/app/services/patron-details-service/pa
 //     checkoutStatus: "DUE" }
 // ]
 
+// export interface checkoutResponse{
+//   id:number;
+//   checkoutDate:string;
+//   returnDueDate:string;
+//   book:string;
+//   user:string;
+//   fee:string;
+//   checkoutStatus:string;
+// }
+
 export class PatronDetailsTableDataSource extends DataSource<Checkout>{
     data: Checkout[] = [];
     paginator: MatPaginator | undefined;
     sort: MatSort | undefined;
+    patronDetailsService: PatronDetailsService;
     
-    constructor(private checkouts:Checkout[]){
+    constructor(private pDS: PatronDetailsService){
         super();
-        this.data = checkouts;
-        console.log(checkouts);
+        this.patronDetailsService = pDS;
+    }
+
+    populate(username:string){
+      this.patronDetailsService.getAllCheckoutsByUserName(username).then(res => this.data = res);
+      console.log(this.data);
     }
 
 
@@ -80,11 +95,11 @@ export class PatronDetailsTableDataSource extends DataSource<Checkout>{
 
   /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
   function compare(a: string | number | Book | Date, b: string | number | Book | Date, isAsc: boolean): number {
-    if(a.constructor === Book.constructor){
-        // I have no idea if this actually works. If it doesn't check the Book Model
-        a = new Book(a);
-        b = new Book(b);
-        return a.compare(b) * (isAsc ? 1 : -1);
-    }
+    // if(){
+    //     // I have no idea if this actually works. If it doesn't check the Book Model
+    //     a = new Book(a);
+    //     b = new Book(b);
+    //     return a.compare(b) * (isAsc ? 1 : -1);
+    // }
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }

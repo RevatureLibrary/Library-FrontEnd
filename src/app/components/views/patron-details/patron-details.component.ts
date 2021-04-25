@@ -25,7 +25,6 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
   email:string = '';
   username:string = '';
   activeUser:ActiveUser | null = LoginService.prototype.getActiveUser();
-  data:Checkout[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Checkout>;
@@ -34,11 +33,10 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
 
   displayedColumns = ['checkoutDate', 'returnDueDate', 'book', 'checkoutStatus'];
 
-  constructor(private patronDetailsService:PatronDetailsService) { 
-    // this.dataSource = new PatronDetailsTableDataSource;
+  constructor(private patronDetailsService:PatronDetailsService) {
+  
     this.setUserDetails();
-    this.patronDetailsService.getAllCheckoutsByUserName(this.username).then(res => this.data = res);
-    this.dataSource = new PatronDetailsTableDataSource(this.data);
+    this.dataSource = new PatronDetailsTableDataSource(this.patronDetailsService);
    }
 
 
@@ -61,10 +59,13 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void{
-
+    // Need to populate datasource here
+    this.dataSource.populate(this.username);
+    this.table.dataSource = this.dataSource;
   }
 
   ngAfterViewInit(): void{
+    // this.dataSource.populate(this.username);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;

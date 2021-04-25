@@ -1,12 +1,13 @@
 import { Book } from "./Book";
 
-export class Checkout{
-    id!:number;
-    checkoutDate!:Date;
-    returnDueDate!:Date;
-    book!:Book;
-    checkoutStatus!:string;
+export interface Checkout{
+    id:number;
+    checkoutDate:Date;
+    returnDueDate:Date;
+    book:string;
+    fee:string;
+    checkoutStatus:string;
     username?:string;
 
-    constructor(){}
+    // constructor(){}
 }
