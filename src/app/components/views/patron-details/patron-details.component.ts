@@ -7,7 +7,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { PatronDetailsTableDataSource } from './patron-details-datasource';
-import { Moment } from 'moment';
 import * as moment from 'moment';
 
 
@@ -25,21 +24,23 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
   lastName:string = '';
   email:string = '';
   username:string = '';
+  activeUser:ActiveUser | null = LoginService.prototype.getActiveUser();
+  data:Checkout[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Checkout>;
 
   dataSource: PatronDetailsTableDataSource;
 
-  displayedColumns = ['checkoutDate', 'returnDueDate', 'book', 'checkoutStatus', 'returnBook'];
+  displayedColumns = ['checkoutDate', 'returnDueDate', 'book', 'checkoutStatus'];
 
-  constructor(private loginService: LoginService, private patronDetailsService:PatronDetailsService) { 
+  constructor(private patronDetailsService:PatronDetailsService) { 
     // this.dataSource = new PatronDetailsTableDataSource;
-    this.dataSource = new PatronDetailsTableDataSource(this.patronDetailsService, this.username);
+    this.setUserDetails();
+    this.patronDetailsService.getAllCheckoutsByUserName(this.username).then(res => this.data = res);
+    this.dataSource = new PatronDetailsTableDataSource(this.data);
    }
 
-
-  activeUser:ActiveUser | null = this.loginService.getActiveUser();
 
   setUserDetails(): void{
     if(this.activeUser !== null){
@@ -60,7 +61,7 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void{
-    this.setUserDetails();
+
   }
 
   ngAfterViewInit(): void{

@@ -21,10 +21,10 @@ export class PatronDetailsTableDataSource extends DataSource<Checkout>{
     paginator: MatPaginator | undefined;
     sort: MatSort | undefined;
     
-    constructor(private patronDetailsService:PatronDetailsService, private username:string){
+    constructor(private checkouts:Checkout[]){
         super();
-        this.patronDetailsService.getAllCheckoutsByUserName(this.username).then(res => this.data = res);
-        console.log(this.data);
+        this.data = checkouts;
+        console.log(checkouts);
     }
 
 

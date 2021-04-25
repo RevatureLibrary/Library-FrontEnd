@@ -39,6 +39,7 @@ export class LoginService {
     }
     let activeUser: ActiveUser = JSON.parse(user);
     let AHead = new HttpHeaders();
+    console.log(activeUser.token);
     AHead.append('Authorization', 'Bearer ' + activeUser.token);
     AHead.append('Content-Type', 'application/json');
     return AHead;
