@@ -26,7 +26,7 @@ export class BookServiceService {
     let user = localStorage.getItem('user');
     let activeUser: ActiveUser = JSON.parse(user!);
     console.log(activeUser);
-    return this.http.get<Book[]>('http://18.222.177.219:8080/library/books', {
+    return this.http.get<Book[]>('http://18.219.208.21:8080/library/books', {
       headers: {
         Authorization: 'Bearer ' + activeUser.token,
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export class BookServiceService {
     let checkOutABook = new CheckOutBook(activeUser.username, bookId);
     return this.http
       .post<CheckOutBook>(
-        'http://18.222.177.219:8080/library/checkouts',
+        'http://18.219.208.21:8080/library/checkouts',
         checkOutABook,
         {
           headers: {
