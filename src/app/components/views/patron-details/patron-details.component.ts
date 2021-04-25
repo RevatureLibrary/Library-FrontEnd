@@ -35,7 +35,7 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
 
   constructor(private loginService: LoginService, private patronDetailsService:PatronDetailsService) { 
     // this.dataSource = new PatronDetailsTableDataSource;
-    this.dataSource = new PatronDetailsTableDataSource(this.patronDetailsService, this.loginService, this.username);
+    this.dataSource = new PatronDetailsTableDataSource(this.patronDetailsService, this.username);
    }
 
 
