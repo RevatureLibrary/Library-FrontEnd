@@ -14,13 +14,14 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class LoginService {
-  regUrl: string = 'http://localhost:8080/library/users';
+  regUrl: string = 'http://18.222.177.219:8080/library/users';
   signUp(newUser: ActiveUser): Promise<ActiveUser> {
     return this.http
       .post<ActiveUser>(this.regUrl, newUser, httpOptions)
       .toPromise<ActiveUser>();
   }
-  authUrl: string = 'http://localhost:8080/library/authentication';
+  authUrl: string = 'http://18.222.177.219:8080/library/authentication';
+  //18.222.177.219
 
   constructor(private http: HttpClient) {}
 

@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('user')) {
-      this.router.navigate(['home'])
+      this.router.navigate(['home']);
     }
   }
 
