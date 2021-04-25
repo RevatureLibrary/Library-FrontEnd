@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActiveUser } from 'src/app/models/ActiveUser';
+import { ActiveUser } from '../../../models/ActiveUser';
 
 function checkLibrarian(): boolean {
   let user = localStorage.getItem('user');

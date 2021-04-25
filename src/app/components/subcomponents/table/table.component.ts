@@ -1,138 +1,55 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
-
-export interface Book {
-  title: string;
-  position: number;
-  author: string;
-  publisher: string;
-  isbn: string;
-  department: string;
-}
-export interface Department {
-  value: string;
-  viewValue: string;
-}
-
-const BOOK_DATA: Book[] = [
-  {
-    position: 1,
-    title: 'Hydrogen',
-    department: 'Science',
-    author: 'H',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 2,
-    title: 'Helium',
-    department: 'Math',
-    author: 'He',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 3,
-    title: 'Lithium',
-    department: 'Science',
-    author: 'Li',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 4,
-    title: 'Beryllium',
-    department: 'Math',
-    author: 'Be',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 5,
-    title: 'Boron',
-    department: 'Science',
-    author: 'Bet',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 6,
-    title: 'Carbon',
-    department: 'Math',
-    author: 'C',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 7,
-    title: 'Nitrogen',
-    department: 'Science',
-    author: 'N',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 8,
-    title: 'Oxygen',
-    department: 'Math',
-    author: 'O',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 9,
-    title: 'Fluorine',
-    department: 'Science',
-    author: 'F',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-  {
-    position: 10,
-    title: 'Neon',
-    department: 'Math',
-    author: 'Ne',
-    publisher: 'Scholastic',
-    isbn: '0-7475-3269-9',
-  },
-];
+import { BookServiceService } from 'src/app/services/book-service/book-service.service';
+import { Book } from '../../../models/Book';
+import { Observable } from 'rxjs';
+import { BooksComponent } from '../../books/books.component';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
+  books: Book[] = [];
+  dataSource = new MatTableDataSource(this.books);
   displayedColumns: string[] = [
-    'position',
     'title',
     'author',
     'publisher',
     'isbn',
-    'department',
+    'departments',
     'checkout',
   ];
-  departments: Department[] = [
-    { value: 'All', viewValue: 'All' },
-    { value: 'Science', viewValue: 'Science' },
-    { value: 'Math', viewValue: 'Math' },
-  ];
-  selectedDepartment = this.departments[0].value;
-  dataSource = new MatTableDataSource(BOOK_DATA);
 
-  applyFilter(event: String) {
-    if (event == 'All') {
-      this.dataSource = new MatTableDataSource(BOOK_DATA);
-    } else {
-      const filterValue = event;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
+  constructor(private service: BookServiceService) {}
+
+  ngOnInit() {
+    this.service.getBooks().subscribe((response) => {
+      this.books = response;
+      this.books = this.books.filter((val) => val.bookStatus === 'AVAILABLE');
+      this.dataSource = new MatTableDataSource(this.books);
+
+      console.log(this.dataSource.data);
+    });
   }
-  applyFilterText(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+
+  // // dataSource = new MatTableDataSource();
+
+  // applyFilter(event: String) {
+  //   if (event == 'All') {
+  //     // this.dataSource = new MatTableDataSource(BOOK_DATA);
+  //   } else {
+  //     const filterValue = event;
+  //     this.dataSource.filter = filterValue.trim().toLowerCase();
+  //   }
+  // }
+  // applyFilterText(event: Event) {
+  //   const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+  // }
 
   applyFilterAuthor(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
@@ -148,7 +65,7 @@ export class TableComponent {
     const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
 
     this.dataSource.filterPredicate = function (data, filter: string): boolean {
-      return data.title.trim().toLowerCase().includes(filter);
+      return data.author.trim().toLowerCase().includes(filter);
     };
 
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -166,16 +83,18 @@ export class TableComponent {
 
   applyFilterISBN(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
-
     this.dataSource.filterPredicate = function (data, filter: string): boolean {
-      return data.isbn.trim().toLowerCase().includes(filter);
+      return data.isbn.toString().trim().toLowerCase().includes(filter);
     };
 
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   deleteRow(book: Book) {
-    this.dataSource.data.splice(book.position - 1, 1);
-    this.dataSource._updateChangeSubscription();
+    this.dataSource.data = this.dataSource.data.filter(
+      (val) => val.id != book.id
+    );
+    console.log(book.id);
+    this.service.checkOutBook(book.id);
   }
 }

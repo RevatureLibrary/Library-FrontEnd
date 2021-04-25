@@ -16,7 +16,7 @@ export class LoginSignupComponent implements OnInit {
   loginAttempt!: LoginAttempt;
   jtw?: Observable<any>;
   returnClick() {
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
   }
   constructor(private loginService: LoginService, private router: Router) {}
 
@@ -39,10 +39,11 @@ export class LoginSignupComponent implements OnInit {
     newUser.email = email;
 
     let success: Promise<ActiveUser> = this.loginService.signUp(newUser);
+
     if (success === null) alert('sign up failed');
     success.then(
-      () => {
-        localStorage.setItem('user', JSON.stringify(success));
+      (something) => {
+        localStorage.setItem('user', JSON.stringify(something));
         this.router.navigate(['']);
       },
       () => alert('sign up failed')

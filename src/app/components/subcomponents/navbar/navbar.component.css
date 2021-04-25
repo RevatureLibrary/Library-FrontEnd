@@ -3,7 +3,6 @@ mat-toolbar {
   top: 0;
   left: 0;
   right: 0;
-  height: 125px;
 }
 mat-toolbar-row {
   position: relative;
@@ -17,6 +16,11 @@ button {
   margin-right: 5px;
   height: 100%;
   width: 8%;
+}
+
+.nav button {
+  position: relative;
+  margin: auto;
 }
 
 .logout {
