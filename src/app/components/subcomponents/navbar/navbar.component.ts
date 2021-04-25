@@ -26,13 +26,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.isLibrarian = checkLibrarian();
   }
+  
   logout() {
     localStorage.removeItem('user');
     this.router.navigate(['']);
-  }
-
-  routeToUserDetails(){
-    this.router.navigate(['userdetails']);
   }
 
   isLibrarian = false;

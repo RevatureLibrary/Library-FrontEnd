@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div>
+<div id="card">
     <mat-card>
         <mat-card-title>
             User Details
@@ -10,12 +10,60 @@
             E-mail: {{email}}
         </mat-card-content>
     </mat-card>
-    <h4>Checked <br>Out Books</h4>
-    <h4>
-        Name: {{firstName}} {{lastName}} <br>
-            Username: {{username}} <br>
-            E-mail: {{email}}
+</div>
 
-    </h4>
-    <h1>This should print</h1>>
+<div class="table mat-elevation-z8">
+    <table mat-table class="full-width-table" matSort aria-label="Elements">
+        <!-- Checkout Date Column -->
+        <ng-container matColumnDef="checkoutDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Date</th>
+            <td mat-cell *matCellDef="let row">{{dateFormat(row.checkoutDate)}}</td>
+          </ng-container>
+
+        <!-- Return Due Date Column -->
+        <ng-container matColumnDef="returnDueDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Return Due Date</th>
+            <td mat-cell *matCellDef="let row">
+                {{dateFormat(row.returnDueDate)}}
+            </td>
+          </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="book">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Book</th>
+            <td mat-cell *matCellDef="let row">
+                {{row.book.title}}
+            </td>
+          </ng-container>
+
+        <!-- Checkout Status Column -->
+        <ng-container matColumnDef="checkoutStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Status</th>
+            <td mat-cell *matCellDef="let row">
+                {{row.checkoutStatus}}
+            </td>
+          </ng-container>
+
+        <!-- Return Book Column -->
+        <ng-container matColumnDef="returnBook">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Status</th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-raised-button (click)="" color = "primary">
+                    Return Book
+                </button>
+            </td>
+          </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator #paginator
+    [length] = "dataSource?.data?.length"
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 25, 50]">
+    </mat-paginator>
 </div>

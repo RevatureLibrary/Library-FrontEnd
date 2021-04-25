@@ -5,6 +5,8 @@ export class Checkout{
     checkoutDate!:Date;
     returnDueDate!:Date;
     book!:Book;
-    username!:string;
     checkoutStatus!:string;
+    username?:string;
+
+    constructor(){}
 }

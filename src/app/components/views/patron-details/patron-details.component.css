@@ -1,0 +1,46 @@
+/* This applies this css styling to all html elements that are assigned
+    with the id attribute equal to card
+*/
+#card{
+    position:absolute;
+    top: 150px;
+    left:30%;
+    right:30%;
+}
+/* This applies this css styling to all html elements
+    that have the class attribute defined as table
+*/
+.table{
+    position:absolute;
+    width: 80%;
+    top:300px;
+    left: 10%;
+    right: 10%;
+}
+
+.mat-row{
+    height:auto;
+}
+
+.mat-column-checkoutDate{
+    
+}
+
+.mat-column-returnDueDate{
+    position:relative;
+    left:60%;
+    width:auto;
+}
+
+.mat-column-book{
+    position:relative;
+    left: 80%;
+    width:auto;
+}
+
+.mat-column-checkoutStatus{
+    position: relative;
+    left:100%;
+    right: 0;
+    width:auto;
+}

@@ -10,11 +10,11 @@ import { ToolbarDirective } from './directives/toolbar.directive';
   declarations: [
     AppComponent,
     routingComponents,
-    CONFIG.comps
+    CONFIG.comps,
   ],
   imports: [
     AppRoutingModule,
-    CONFIG.modules
+    CONFIG.modules,
   ],
   providers: [],
   bootstrap: [AppComponent],

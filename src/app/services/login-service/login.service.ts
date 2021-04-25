@@ -41,4 +41,11 @@ export class LoginService {
     AHead.append('Content-Type', 'application/json');
     return AHead;
   }
+
+  getActiveUser(): ActiveUser | null{
+    let user = localStorage.getItem('user');
+    if (user == null) return null;
+    let activeUser: ActiveUser = JSON.parse(user);
+    return activeUser;
+  }
 }
