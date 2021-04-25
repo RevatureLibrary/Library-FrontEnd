@@ -1,16 +1,25 @@
-<div>
+<app-navbar></app-navbar>
+<div class="yes">
+  <div class="search">
+    <mat-form-field>
+      <input
+        matInput
+        #searchBox
+        type="text"
+        (keydown.enter)="searchUser(searchBox.value)"
+        placeholder="Search by username here"
+      />
+    </mat-form-field>
+    <button
+      mat-flat-button
+      (click)="searchUser(searchBox.value)"
+      color="primary"
+    >
+      Search
+    </button>
+  </div>
 
-    <div class="search">
-        <mat-form-field>
-            <input matInput #searchBox type="text" (keydown.enter)="searchUser(searchBox.value)" placeholder="Search by username here">
-        </mat-form-field>
-        <button mat-flat-button (click)="searchUser(searchBox.value)" color="primary">Search</button>
-    </div>
-
-
-
-
-<!-- <table>
+  <!-- <table>
     <tr>
         <th>Id</th>
         <th>Username</th>
@@ -33,56 +42,54 @@
     </tr>
 </table> -->
 
-<div>
-    <table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let users"> {{ users.id }} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
-            <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
+        <mat-cell *matCellDef="let users"> {{ users.username }} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="username">
-            <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
-            <mat-cell *matCellDef="let user"> {{user.username}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="password">
+        <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
+        <mat-cell *matCellDef="let users"> {{ users.password }} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="password">
-            <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
-            <mat-cell *matCellDef="let user"> {{user.password}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let users"> {{ users.firstName }} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="firstName">
-            <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
-            <mat-cell *matCellDef="let user"> {{user.firstName}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let users"> {{ users.lastName }} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="lastName">
-            <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
-            <mat-cell *matCellDef="let user"> {{user.lastName}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let users"> {{ users.email }} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="email">
-            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-            <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="created">
+        <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+        <mat-cell *matCellDef="let users"> {{ users.created }} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="created">
-            <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
-            <mat-cell *matCellDef="let user"> {{user.created}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="deleteButton">
+        <mat-header-cell *matHeaderCellDef> Delete? </mat-header-cell>
+        <mat-cell *matCellDef="let users">
+          <button mat-flat-button (click)="deleteUser(users.id)" color="warn">
+            Delete
+          </button>
+        </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="deleteButton">
-            <mat-header-cell *matHeaderCellDef> Delete? </mat-header-cell>
-            <mat-cell *matCellDef="let user">
-                <button mat-flat-button (click)="deleteUser(user)" color="warn">Delete</button>
-            </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </table>
-</div>
-
-
-
+  </div>
 </div>

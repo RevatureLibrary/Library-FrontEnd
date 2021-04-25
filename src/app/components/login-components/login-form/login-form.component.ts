@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { from, Observable } from 'rxjs';
-import { ActiveUser } from 'src/app/models/ActiveUser';
-import { LoginAttempt } from 'src/app/models/LoginAttempt';
-import { LoginService } from 'src/app/services/login-service/login.service';
+import { ActiveUser } from '../../../models/ActiveUser';
+import { LoginAttempt } from '../../../models/LoginAttempt';
+import { LoginService } from '../../../services/login-service/login.service';
 
 @Component({
   selector: 'app-login-form',

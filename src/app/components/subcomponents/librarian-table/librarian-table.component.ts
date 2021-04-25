@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { BookServiceService } from 'src/app/services/book-service/book-service.service';
+import { BookServiceService } from '../../../services/book-service/book-service.service';
 import { Book } from '../../../models/Book';
 
 @Component({
