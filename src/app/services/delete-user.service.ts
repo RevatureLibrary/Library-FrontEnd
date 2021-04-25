@@ -47,7 +47,7 @@ export class DeleteUserService {
   }
   //18.222.177.219
   deleteUser(id: number) {
-    return this.http.delete('http://18.222.177.219:8080/users', {
+    return this.http.delete('http://localHost:8080/library/users/'+ id.toString(), {
       headers: {
         Authorization: 'Bearer ' + this.activeUser.token,
         'Content-Type': 'application/json',
