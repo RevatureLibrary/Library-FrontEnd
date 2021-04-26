@@ -17,14 +17,14 @@
         <!-- Checkout Date Column -->
         <ng-container matColumnDef="checkoutDate">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Date</th>
-            <td mat-cell *matCellDef="let row">{{dateFormat(row.checkoutDate)}}</td>
+            <td mat-cell *matCellDef="let row">{{row.checkoutDate | date }}</td>
           </ng-container>
 
         <!-- Return Due Date Column -->
         <ng-container matColumnDef="returnDueDate">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Return Due Date</th>
             <td mat-cell *matCellDef="let row">
-                {{dateFormat(row.returnDueDate)}}
+                {{row.returnDueDate | date}}
             </td>
           </ng-container>
 
@@ -44,15 +44,15 @@
             </td>
           </ng-container>
 
-        <!-- Return Book Column
-        <ng-container matColumnDef="returnBook">
+        <!-- Return Book Column -->
+        <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Status</th>
             <td mat-cell *matCellDef="let row">
-                <button mat-raised-button color = "primary">
+                <button mat-raised-button (click)="returnBook(row)" color = "primary">
                     Return Book
                 </button>
             </td>
-          </ng-container> -->
+          </ng-container>
 
 
 

@@ -42,6 +42,10 @@ export class PatronDetailsTableDataSource extends DataSource<Checkout>{
       console.log(this.data);
     }
 
+    returnBook(checkout:Checkout){
+      this.patronDetailsService.returnBook(checkout.id).then(res => this.data = this.data.filter(checkout => checkout.id !== res.id));
+    }
+
 
     connect(): Observable<Checkout[]>{
         if (this.paginator && this.sort) {
