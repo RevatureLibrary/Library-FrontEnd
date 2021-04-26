@@ -6,7 +6,7 @@ import { PatronDetailsService } from 'src/app/services/patron-details-service/pa
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { PatronDetailsTableDataSource } from './patron-details-datasource';
+import { PatronDetailsTableDataSource } from '../patron-details/patron-details-datasource';
 import { DatePipe } from '@angular/common';
 
 @Component({

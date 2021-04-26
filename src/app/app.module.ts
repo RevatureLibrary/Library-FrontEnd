@@ -33,7 +33,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +66,7 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

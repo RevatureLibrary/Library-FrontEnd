@@ -13,11 +13,11 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row [class.mat-elevation-z8]="true" class="nav" *ngIf="isUser">
-    <button mat-button routerLink="librarian" *ngIf="isLibrarian">
+    <button mat-button routerLink="/librarian" *ngIf="isLibrarian">
       Librarian
     </button>
-    <button mat-button routerLink="users" *ngIf="isLibrarian">Users</button>
-    <button mat-button routerLink="">Home</button>
-    <button mat-button routerLink="userdetails">User Details</button>
+    <button mat-button routerLink="/users" *ngIf="isLibrarian">Users</button>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/userdetails">User Details</button>
   </mat-toolbar-row>
 </mat-toolbar>

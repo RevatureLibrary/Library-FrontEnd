@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'librarian', component: LibrarianHomeComponent },
 
-  { path: '**', redirectTo: '' },
+  // { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
