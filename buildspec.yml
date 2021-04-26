@@ -8,7 +8,6 @@ phases:
       - echo installing dependencies...
       - npm i -g @angular/cli
       - npm install
-      - npm install moment --save
   build:
     commands:
       # - echo testing...
