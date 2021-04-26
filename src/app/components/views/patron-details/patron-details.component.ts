@@ -7,8 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { PatronDetailsTableDataSource } from './patron-details-datasource';
-import * as moment from 'moment';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-patron-details',
@@ -31,7 +30,7 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
 
   dataSource: PatronDetailsTableDataSource;
 
-  displayedColumns = ['checkoutDate', 'returnDueDate', 'book', 'checkoutStatus'];
+  displayedColumns = ['checkoutDate', 'returnDueDate', 'book', 'checkoutStatus', 'id'];
 
   constructor(private patronDetailsService:PatronDetailsService) {
   
@@ -49,13 +48,33 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
     }
   }
 
-  dateFormat(date:Date): string{
-    let mom = moment(date);
-    return mom.format('MMM Do YYYY');
+  returnBook(checkout:Checkout):void{
+    this.dataSource.returnBook(checkout);
+    // this.dataSource.populate(this.username);
+    // this.ngAfterViewInit();
+
+    checkout.checkoutStatus = "RETURNED";
   }
 
-  returnBook():void{
-    // this.dataSource.data.splice()
+  bookStatus(checkout:Checkout){
+    if(checkout.checkoutStatus === "RETURNED"){
+      return false;
+    }
+    return true;
+  }
+
+  formatDate(date:Date):void{
+    // let day = date.getDay;
+    // let month = date.getMonth;
+    // let year = date.getFullYear;
+    // let dayMonth = date.getDate;
+
+    // let res:string;
+
+    // let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    // let week = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+    // res = months[month] + " " + week[day] + dayMonth + year;
+    // DatePipe.
   }
 
   ngOnInit(): void{
