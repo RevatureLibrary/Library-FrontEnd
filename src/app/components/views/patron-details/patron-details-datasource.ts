@@ -43,7 +43,7 @@ export class PatronDetailsTableDataSource extends DataSource<Checkout>{
     }
 
     returnBook(checkout:Checkout){
-      this.patronDetailsService.returnBook(checkout.id).then(res => this.data = this.data.filter(checkout => checkout.id !== res.id));
+      this.patronDetailsService.returnBook(checkout.id).then();
     }
 
 
@@ -89,7 +89,8 @@ export class PatronDetailsTableDataSource extends DataSource<Checkout>{
       switch (this.sort?.active) {
         case 'checkoutDate': return compare(a.checkoutDate, b.checkoutDate, isAsc);
         case 'returnDueDate': return compare(+a.returnDueDate, +b.returnDueDate, isAsc);
-        case 'book': return compare(a.book, b.book, isAsc);
+        case 'book': return compare(a.book.title, b.book.title, isAsc);
+        case 'checkoutStatus': return compare(a.checkoutStatus, b.checkoutStatus, isAsc);
         default: return 0;
       }
     });

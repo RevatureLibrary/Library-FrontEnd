@@ -50,6 +50,17 @@ export class PatronDetailsComponent implements OnInit, AfterViewInit{
 
   returnBook(checkout:Checkout):void{
     this.dataSource.returnBook(checkout);
+    // this.dataSource.populate(this.username);
+    // this.ngAfterViewInit();
+
+    checkout.checkoutStatus = "RETURNED";
+  }
+
+  bookStatus(checkout:Checkout){
+    if(checkout.checkoutStatus === "RETURNED"){
+      return false;
+    }
+    return true;
   }
 
   formatDate(date:Date):void{

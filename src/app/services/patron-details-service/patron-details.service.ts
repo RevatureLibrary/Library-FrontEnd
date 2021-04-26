@@ -30,7 +30,7 @@ export class PatronDetailsService {
   returnBook(id:number):Promise<Checkout>{
     let user = localStorage.getItem('user');
     let activeUser:ActiveUser = JSON.parse(user!);
-      return this.http.put<Checkout>(this.url + id, {
+      return this.http.put<Checkout>(this.url + id, null, {
           headers:{
             Authorization: 'Bearer ' + activeUser.token,
             'Content-Type': 'application/json'

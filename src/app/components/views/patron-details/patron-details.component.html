@@ -46,9 +46,9 @@
 
         <!-- Return Book Column -->
         <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Status</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Return Book</th>
             <td mat-cell *matCellDef="let row">
-                <button mat-raised-button (click)="returnBook(row)" color = "primary">
+                <button mat-raised-button (click)="returnBook(row)" color = "primary" *ngIf="bookStatus(row)">
                     Return Book
                 </button>
             </td>
