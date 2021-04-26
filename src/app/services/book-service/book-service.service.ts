@@ -33,7 +33,15 @@ export class BookServiceService {
   }
 
   addBook(book: Book): Observable<Book> {
-    return this.http.post<Book>('http://18.219.208.21:8080/library/books', book, httpOptions);
+    let user = localStorage.getItem('user');
+    let activeUser: ActiveUser = JSON.parse(user!);
+    console.log(activeUser);
+    return this.http.post<Book>('http://18.219.208.21:8080/library/books', book, {
+      headers: {
+        Authorization: 'Bearer ' + activeUser.token,
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   getBooks(): Observable<Book[]> {
