@@ -7,20 +7,18 @@ import { LoginComponent } from './components/views/login/login.component';
 import { SignupComponent } from './components/views/signup/signup.component';
 import { UserHomeComponent } from './components/views/user-home/user-home.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
-import { PatronDetailsComponent } from './components/views/patron-details/patron-details.component'
+import { PatronDetailsComponent } from './components/views/patron-details/patron-details.component';
 
 const routes: Routes = [
   { path: 'home', component: UserHomeComponent },
   { path: 'home/:id', component: UserHomeComponent },
   { path: 'users', component: DeleteUserComponent },
-  { path: 'userdetails', component: PatronDetailsComponent},
+  { path: 'userdetails', component: PatronDetailsComponent },
   { path: 'sign-up', component: SignupComponent },
   { path: '', component: LoginComponent },
   { path: 'librarian', component: LibrarianHomeComponent },
-  
-  { path: '**', redirectTo: '' }
-  
-  ,
+
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
