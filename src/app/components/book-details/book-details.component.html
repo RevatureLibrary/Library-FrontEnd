@@ -1,0 +1,35 @@
+<div [class.mat-elevation-z8]=true>
+    <h1>Book details:</h1>
+    <form class = "bookForm" >
+        <mat-form-field appearance="fill">
+        <mat-label>title</mat-label><input matInput name="title" #t  type="text" value=""/>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+        <mat-label>author</mat-label>
+        <input matInput name="author" #a  type="text" value=""/>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+        <mat-label>publisher</mat-label>
+        <input matInput name="publisher" #p  type="text" value=""/>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+        <mat-label>ISBN</mat-label>
+        <input matInput name="isbn" #i  type="text" value=""/>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+        <mat-label>status</mat-label>
+        <input matInput name="status" #s  type="text" value=""/>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+        <mat-label>condition</mat-label>
+        <input matInput name="condition" #c  type="text" value=""/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>departments</mat-label>
+        <input matInput name="departments" #d  type="text" value=""/>
+    </mat-form-field>
+   
+</form>
+<button mat-flat-button (click)="submitBook(t.value,a.value,p.value,i.value,s.value,c.value,d.value)" color="primary" >Edit book</button>
+<span>  </span>
+<button mat-flat-button routerLink='/librarian' color="primary" >Cancel</button><br><br>

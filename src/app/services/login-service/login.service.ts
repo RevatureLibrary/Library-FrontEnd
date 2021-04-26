@@ -15,6 +15,7 @@ const httpOptions = {
 })
 export class LoginService {
   regUrl: string = 'http://18.219.208.21:8080/library/users';
+  
   signUp(newUser: ActiveUser): Promise<ActiveUser> {
     return this.http
       .post<ActiveUser>(this.regUrl, newUser, httpOptions)

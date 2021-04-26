@@ -17,7 +17,8 @@ export class Book {
     bookStatus: string,
     condition: string,
     departments: string[]
-  ) {
+  ) 
+  {
     this.id = id;
     this.title = title;
     this.author = author;

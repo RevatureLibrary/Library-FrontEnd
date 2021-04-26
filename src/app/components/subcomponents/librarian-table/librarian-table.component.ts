@@ -84,4 +84,12 @@ export class LibrarianTableComponent implements OnInit {
     console.log(book.id);
     this.service.checkOutBook(book.id);
   }
+  
+  editBook(book: Book) {
+    this.dataSource.data = this.dataSource.data.filter(
+      (val) => val.id != book.id
+    );
+    console.log(book.id);
+    this.service.addBook(book);
+  }
 }

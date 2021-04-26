@@ -8,6 +8,7 @@ import { SignupComponent } from './components/views/signup/signup.component';
 import { UserHomeComponent } from './components/views/user-home/user-home.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { PatronDetailsComponent } from './components/views/patron-details/patron-details.component'
+import { BookDetailsComponent } from './components/book-details/book-details.component';
 
 const routes: Routes = [
   { path: 'home', component: UserHomeComponent },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupComponent },
   { path: '', component: LoginComponent },
   { path: 'librarian', component: LibrarianHomeComponent },
-  
+  { path: 'librarian/editbook', component: BookDetailsComponent},
   { path: '**', redirectTo: '' }
   
   ,

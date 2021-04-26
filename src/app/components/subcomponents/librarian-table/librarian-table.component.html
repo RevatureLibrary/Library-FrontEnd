@@ -89,16 +89,13 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let books" fxLayoutGap="5px">
-        <button
-          mat-raised-button
-          routerLink="/home/{{ books.id }}"
-          color="primary"
-        >
+        <button mat-raised-button (click)="editBook(books)" routerLink = "/librarian/editbook" color="primary">
           Edit
         </button>
       </td>
     </ng-container>
     <!-- , books.id -->
+	
     <!-- Delete Column -->
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef></th>

@@ -32,6 +32,7 @@ import { PatronDetailsComponent } from './components/views/patron-details/patron
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
+import { BookDetailsComponent } from './components/book-details/book-details.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { MatCardModule } from '@angular/material/card';
     LoginComponent,
     SignupComponent,
     PatronDetailsComponent,
+    BookDetailsComponent,
   ],
   imports: [
     BrowserModule,
