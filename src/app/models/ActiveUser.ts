@@ -4,7 +4,9 @@ export class ActiveUser {
   role!: string;
   firstName!: string;
   lastName!: string;
+  email!: string;
   token?: string;
   password?: string;
-  email?: string;
 }
+
+//pgonz: changed email from email?: to email!:

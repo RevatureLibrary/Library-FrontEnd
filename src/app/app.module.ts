@@ -28,6 +28,11 @@ import { LibrarianTableComponent } from './components/subcomponents/librarian-ta
 import { ToolbarDirective } from './directives/toolbar.directive';
 import { LoginComponent } from './components/views/login/login.component';
 import { SignupComponent } from './components/views/signup/signup.component';
+import { PatronDetailsComponent } from './components/views/patron-details/patron-details.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +50,7 @@ import { SignupComponent } from './components/views/signup/signup.component';
     ToolbarDirective,
     LoginComponent,
     SignupComponent,
+    PatronDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +65,9 @@ import { SignupComponent } from './components/views/signup/signup.component';
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
