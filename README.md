@@ -1,27 +1,54 @@
-# WilliamLibrary
+# William Library
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+## Project Description
 
-## Development server
+The front end of this project uses Angular to achieve a client side UI that allows for features such as checking out a book as a user, returning books that were checked out, and admin level features such as deleting users from the database. Librarian users also have select features such as returning to stock books that have been marked as pending from a user returning a book and adding/deleting/editing books from the database.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Technologies Used
 
-## Code scaffolding
+* Angular - version 11
+* TypeScript - version 4
+* HTML - version 5
+* CSS - version 3
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+List of features ready:
+* Check out a book.
+* Return a checked out book.
+* Add/Edit/Delete a book.
+* Delete a user as an admin.
+* RTS a book.
+* User details.
+* Login/Signup.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To-do list:
+* Add a billing service for our users when fees are made.
+* Edit user details.
 
-## Running unit tests
+## Getting Started
+   
+### Setting up the local repository
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> git clone https://github.com/RevatureLibrary/Library-FrontEnd.git  
+> git checkout main
 
-## Running end-to-end tests
+### Running the application
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+> Make sure you have Angular installed locally.
+> Make sure you have Angular CLI installed.
+> Make sure the backend repository is set up and running first.
+> Make changes to the source folder where there are urls, change them to /localhost:8080/.
+> ng serve (make sure you are in the cloned directory)
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> On your browser, go to localhost:4200.
+
+## Contributors
+
+> Sam Daniel
+> Nicholas Wickham
+> Elizabeth Ye
+> Kevin Wang
+> Patrick Gonzalez
