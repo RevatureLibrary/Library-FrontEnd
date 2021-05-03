@@ -30,25 +30,25 @@ To-do list:
    
 ### Setting up the local repository
 
-> git clone https://github.com/RevatureLibrary/Library-FrontEnd.git  
-> git checkout main
+* git clone https://github.com/RevatureLibrary/Library-FrontEnd.git  
+* git checkout main
 
 ### Running the application
 
-> Make sure you have Angular installed locally.
-> Make sure you have Angular CLI installed.
-> Make sure the backend repository is set up and running first.
-> Make changes to the source folder where there are urls, change them to /localhost:8080/.
-> ng serve (make sure you are in the cloned directory)
+* Make sure you have Angular installed locally.
+* Make sure you have Angular CLI installed.
+* Make sure the backend repository is set up and running first.
+* Make changes to the source folder where there are urls, change them to /localhost:8080/.
+* ng serve (make sure you are in the cloned directory)
 
 ## Usage
 
-> On your browser, go to localhost:4200.
+* On your browser, go to localhost:4200.
 
 ## Contributors
 
-> Sam Daniel
-> Nicholas Wickham
-> Elizabeth Ye
-> Kevin Wang
-> Patrick Gonzalez
+* Sam Daniel
+* Nicholas Wickham
+* Elizabeth Ye
+* Kevin Wang
+* Patrick Gonzalez
